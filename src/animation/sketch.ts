@@ -1,12 +1,8 @@
 import p5, { Vector, Color } from "p5";
 
 type IssPositionPayload = {
-  iss_position: {
-    latitude: number;
-    longitude: number;
-  };
-  timestamp: number;
-  message: string;
+  latitude: number;
+  longitude: number;
 };
 
 type Position = { lat: number; long: number };
@@ -60,13 +56,13 @@ this example is created to test the interaction methods proposed for the HumanTe
 
     // Get the International Space Station Current Location data
     issPositionPayload = p.loadJSON(
-      "http://api.open-notify.org/iss-now.json"
+      "https://api.wheretheiss.at/v1/satellites/25544"
     ) as IssPositionPayload;
   };
 
   p.setup = async () => {
-    issPosition.lat = issPositionPayload.iss_position.latitude;
-    issPosition.long = issPositionPayload.iss_position.longitude;
+    issPosition.lat = issPositionPayload.latitude;
+    issPosition.long = issPositionPayload.longitude;
 
     getTemperatureAtPosition(issPosition);
 
@@ -94,10 +90,10 @@ this example is created to test the interaction methods proposed for the HumanTe
 
     if (t % 500 == 0) {
       p.loadJSON(
-        "http://api.open-notify.org/iss-now.json",
+        "https://api.wheretheiss.at/v1/satellites/25544",
         (issPositionPayload: IssPositionPayload) => {
-          issPosition.lat = issPositionPayload.iss_position.latitude;
-          issPosition.long = issPositionPayload.iss_position.longitude;
+          issPosition.lat = issPositionPayload.latitude;
+          issPosition.long = issPositionPayload.longitude;
         }
       );
 
