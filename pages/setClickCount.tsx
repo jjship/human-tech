@@ -1,21 +1,12 @@
-import { useContext } from "react";
-import { ClickCountContext } from "../src/context/ClickCountContext";
 import styles from "../styles/Home.module.css";
 
-export default function ClickCount() {
-  const { clickCount, setClickCount } = useContext(ClickCountContext);
-
-  const handleIncrementClickCount = () => {
-    setClickCount((prevState) => prevState + 1);
-    console.log({ clickCount });
-  };
-
+export default function SetClickCount() {
   return (
     <>
-      <p className={styles.card}>{clickCount}</p>
+      {/* <p className={styles.card}>{value.clickCount}</p> */}
       <button
         className={styles.card}
-        onClick={() => handleIncrementClickCount()}
+        // onClick={() => value.setClickCount(value.clickCount + 1)}
       ></button>
     </>
   );
