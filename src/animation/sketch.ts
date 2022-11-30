@@ -1,5 +1,6 @@
 import { Vector, Color } from "p5";
-import { P5CanvasInstance, SketchProps } from "react-p5-wrapper";
+import p5 from "p5";
+import { ClickCountResponsePayload, clickUrl } from "../../pages/api/click";
 
 type IssPositionPayload = {
   latitude: number;
@@ -16,22 +17,11 @@ type CurrentWeatherAtPosition = {
   };
 };
 
-type ClickCountResponsePayload = {
-  variable_value: {
-    N: string;
-  };
-};
-
 type Provinces = {
   features: { properties: { name: string } }[];
 };
 
-// type SketchPropsWithClickCount = SketchProps & {
-//   clickCount: number;
-// };
-// export function sketch(p: p5) {
-// export function sketch(p: P5CanvasInstance<SketchPropsWithClickCount>) {
-export function sketch(p: P5CanvasInstance) {
+export function sketch(p: p5) {
   /*
 Author: David Sypniewski
 Based mostely on the knowledge gained from the courses of The Coding Train, https://thecodingtrain.com
@@ -42,7 +32,6 @@ this example is created to test the interaction methods proposed for the HumanTe
 */
   let provinceNames: string[];
   let randomProvinceName: string;
-  // let provincesLenght;
   let issPositionPayload: IssPositionPayload;
   const issPosition: Position = {
     lat: 0,
@@ -58,8 +47,7 @@ this example is created to test the interaction methods proposed for the HumanTe
   let t = 0;
 
   let clickCountResponsePayload: ClickCountResponsePayload;
-  let clickCount: number; //ta zmienna otrzymuje dane z bazy danych  ////JACEK
-  // console.log({ source: "sketchInit", clickCount });
+  let clickCount: number; //ta zmienna otrzymuje dane z bazy danych
   let clickCountFromDatabase: number;
   p.preload = () => {
     // Get the polish provinces database
@@ -77,7 +65,7 @@ this example is created to test the interaction methods proposed for the HumanTe
     ) as IssPositionPayload;
 
     clickCountResponsePayload = p.loadJSON(
-      "api/click"
+      clickUrl
     ) as ClickCountResponsePayload;
   };
 
@@ -103,7 +91,7 @@ this example is created to test the interaction methods proposed for the HumanTe
     minuteNow = p.minute();
 
     clickCount = p.int(clickCountResponsePayload.variable_value.N);
-    console.log({ clickCount105: clickCount });
+
     for (let i = 0; i < clickCount; i++) {
       addStar();
     }
@@ -112,7 +100,7 @@ this example is created to test the interaction methods proposed for the HumanTe
   p.draw = () => {
     t++;
 
-    if (t % 500 == 0) {
+    if (t % 100 == 0) {
       p.loadJSON(
         "https://api.wheretheiss.at/v1/satellites/25544",
         (issPositionPayload: IssPositionPayload) => {
@@ -121,14 +109,8 @@ this example is created to test the interaction methods proposed for the HumanTe
         }
       );
 
-      // p.updateWithProps = (props) => {
-      //   if (props.clickCount) {
-      //     clickCount = props.clickCount;
-      //   }
-      //   console.log({ source: "sketchDraw", clickCount, clickCount });
-      // };
       p.loadJSON(
-        "api/click",
+        clickUrl,
         (clickCountResponsePayload: ClickCountResponsePayload) => {
           clickCountFromDatabase = p.int(
             clickCountResponsePayload.variable_value.N
@@ -136,7 +118,10 @@ this example is created to test the interaction methods proposed for the HumanTe
         }
       );
       console.log({ loaded: clickCountFromDatabase });
-      getNewClicks(clickCount, clickCountFromDatabase);
+      clickCount = getNewClicks({
+        oldClicks: clickCount,
+        newClicks: clickCountFromDatabase,
+      });
     }
 
     newMinute = p.minute();
@@ -179,35 +164,36 @@ this example is created to test the interaction methods proposed for the HumanTe
     p.print(v);
   }
 
-  function getNewClicks(oldClicks: number, newClicks: number) {
+  function getNewClicks({
+    oldClicks,
+    newClicks,
+  }: {
+    oldClicks: number;
+    newClicks: number;
+  }) {
     console.log("GET CLICKS");
 
-    // ta funkcja aktualizuje zmienną ClickCount  ////JACEK
+    // ta funkcja aktualizuje zmienną ClickCount
     // i zmienia wartość tej zmiennej
     try {
-      p.loadJSON(
-        "api/click",
-        (newResponsePayload: ClickCountResponsePayload) => {
-          newClicks = p.int(newResponsePayload.variable_value.N);
-        }
-      );
+      p.loadJSON(clickUrl, (newResponsePayload: ClickCountResponsePayload) => {
+        newClicks = p.int(newResponsePayload.variable_value.N);
+      });
     } catch (error) {
       console.log(error);
     }
 
-    // p.loadJSON("api/click", (payload: ClickCountResponsePayload) => {
-    //   clickCountFromDatabase = p.int(payload.variable_value.N);
-    // });
     console.log({ newClicks, oldClicks });
     if (
-      // typeof clickCountFromDatabase === "number" &&
+      //sprawdzam, czy udało się pobrać i porównuję czy coś się zmieniło od ostatniego sprawdzenia
+      newClicks &&
       oldClicks !== newClicks
     ) {
       console.log("NEW CLICK****", newClicks);
-      //porównuję czy coś się zmieniło od ostatniego sprawdzenia
-      clickCount = newClicks;
-      addStar();
+      addStar(); //TODO - move out of this function and make it react to the change old/newClicks - deleting drawn
+      return newClicks;
     }
+    return oldClicks;
   }
 
   function getTemperatureAtPosition(position: Position) {

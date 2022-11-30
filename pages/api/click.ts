@@ -1,18 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  DynamoDBClient,
-  // PutItemCommand,
-  GetItemCommand,
-  // UpdateItemCommand,
-  // DeleteItemCommand,
-  // UpdateItemCommandInput,
-} from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
 
-import {
-  DynamoDBDocumentClient,
-  UpdateCommand,
-  UpdateCommandOutput,
-} from "@aws-sdk/lib-dynamodb";
+import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
+
+export type ClickCountResponsePayload = {
+  variable_value: {
+    N: string;
+  };
+};
+
+export const clickUrl = "api/click";
+
+//TODO handle clickCount < 0
 
 const client = new DynamoDBClient({
   credentials: {
@@ -50,42 +49,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Record<string, any> | undefined>
 ) {
-  // if (req.method === "PUT") {
-  //   const { Item } = await client.send(
-  //     new PutItemCommand({
-  //       TableName: process.env.AWS_TABLE_NAME,
-  //       Item: {
-  //         animation_name: { S: "showcase" },
-  //         variable_name: { S: "clickCount" },
-  //         variable: { S: req.body.content },
-  //       },
-  //     })
-  //   );
-  //   console.log(Item);
-  //   return res.status(201).json(Item);
-  // }
-
-  if (req.method === "PATCH") {
-    const { Attributes } = await ddbDocClient.send(
-      new UpdateCommand({
-        TableName: process.env.AWS_TABLE_NAME,
-        Key: {
-          animation_name: "showcase",
-          variable_name: "clickCount",
-        },
-        UpdateExpression: "SET variable_value = variable_value + :increment",
-        ExpressionAttributeValues: {
-          ":increment": 1,
-        },
-        ReturnValues: "ALL_NEW",
-      })
-    );
-
-    // console.log({ response });
-
-    return res.status(200).json(Attributes);
-  }
-
   if (req.method === "GET") {
     const { Item } = (await client.send(
       new GetItemCommand({
@@ -100,38 +63,25 @@ export default async function handler(
     return res.status(200).json(Item);
   }
 
-  // if (req.method === "POST") {
-  //   const { Attributes } = await client.send(
-  //     new UpdateItemCommand({
-  //       TableName: process.env.AWS_TABLE_NAME,
-  //       Key: {
-  //         animation_name: { S: "showcase" },
-  //         value_name: { S: "clickCount" },
-  //       },
-  //       UpdateExpression: "set content = :c",
-  //       ExpressionAttributeValues: {
-  //         ":c": { S: req.body.content },
-  //       },
-  //       ReturnValues: "ALL_NEW",
-  //     })
-  //   );
+  if (req.method === "POST") {
+    console.log(req.body);
+    const clickChange = Number(req.body.clickChange);
+    console.log({ clickChange });
+    const { Attributes } = await ddbDocClient.send(
+      new UpdateCommand({
+        TableName: process.env.AWS_TABLE_NAME,
+        Key: {
+          animation_name: "showcase",
+          variable_name: "clickCount",
+        },
+        UpdateExpression: "SET variable_value = variable_value + :clickChange",
+        ExpressionAttributeValues: {
+          ":clickChange": clickChange,
+        },
+        ReturnValues: "ALL_NEW",
+      })
+    );
 
-  //   console.log({ Attributes });
-
-  //   return res.status(200).json(Attributes);
-  // }
-
-  // if (req.method === "DELETE") {
-  //   await client.send(
-  //     new DeleteItemCommand({
-  //       TableName: process.env.AWS_TABLE_NAME,
-  //       Key: {
-  //         animation_name: { S: "showcase" },
-  //         value_name: { S: "clickCount" },
-  //       },
-  //     })
-  //   );
-
-  //   return res.status(204).json({});
-  // }
+    return res.status(200).json(Attributes);
+  }
 }
