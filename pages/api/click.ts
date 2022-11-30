@@ -15,10 +15,10 @@ export const clickUrl = "api/click";
 
 const client = new DynamoDBClient({
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY!,
-    secretAccessKey: process.env.AWS_SECRET_KEY!,
+    accessKeyId: process.env.AWS_DB_ACCESS_KEY!,
+    secretAccessKey: process.env.AWS_DB_SECRET_KEY!,
   },
-  region: process.env.AWS_REGION,
+  region: process.env.AWS_DB_REGION,
 });
 
 const marshallOptions = {
@@ -52,7 +52,7 @@ export default async function handler(
   if (req.method === "GET") {
     const { Item } = (await client.send(
       new GetItemCommand({
-        TableName: process.env.AWS_TABLE_NAME,
+        TableName: process.env.AWS_DB_TABLE_NAME,
         Key: {
           animation_name: { S: "showcase" },
           variable_name: { S: "clickCount" },
@@ -69,7 +69,7 @@ export default async function handler(
     console.log({ clickChange });
     const { Attributes } = await ddbDocClient.send(
       new UpdateCommand({
-        TableName: process.env.AWS_TABLE_NAME,
+        TableName: process.env.AWS_DB_TABLE_NAME,
         Key: {
           animation_name: "showcase",
           variable_name: "clickCount",
