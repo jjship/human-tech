@@ -1,8 +1,8 @@
 import p5 from "p5";
+import { ClickCountResponsePayload, clickUrl } from "../../pages/api/click";
 
 export function sketch(p: p5) {
   let btn;
-  let clickCount = 0;
   let x: number;
   let y1: number;
   let y2: number;
@@ -32,9 +32,9 @@ export function sketch(p: p5) {
       p.mouseY > y1 &&
       p.mouseY < y1 + h
     ) {
-      clickCount++;
-      //oraz wyślij clickCount do bazy danych  ////JACEK
-      p.print(clickCount);
+      p.httpPost(clickUrl, "json", { clickChange: 1 });
+
+      p.print("added");
       clicked1 = true;
     }
     if (
@@ -43,11 +43,9 @@ export function sketch(p: p5) {
       p.mouseY > y2 &&
       p.mouseY < y2 + h
     ) {
-      if (clickCount > 1) {
-        clickCount--;
-      }
-      //oraz wyślij clickCount do bazy danych  ////JACEK
-      p.print(clickCount);
+      //wyślij clickCount do bazy danych
+      p.httpPost(clickUrl, "json", { clickChange: -1 });
+      p.print("substracted");
       clicked2 = true;
     }
   };
