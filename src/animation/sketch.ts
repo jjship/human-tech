@@ -42,7 +42,7 @@ this example is created to test the interaction methods proposed for the HumanTe
   let minuteNow: number;
   let stars: Vector[] = [];
   let provinces: Provinces;
-  let c: Color;
+  let vectorColor: Color;
 
   let t = 0;
 
@@ -86,7 +86,7 @@ this example is created to test the interaction methods proposed for the HumanTe
     p.textSize(20);
     p.textAlign(p.CENTER, p.CENTER);
     p.noStroke();
-    c = p.color(255, 66, 66);
+    vectorColor = p.color(255, 66, 66);
 
     minuteNow = p.minute();
 
@@ -141,7 +141,7 @@ this example is created to test the interaction methods proposed for the HumanTe
     p.fill(temperatureAtIssPosition * 10, 0, 0);
     p.text(temperatureAtIssPosition, x, y);
     p.noFill();
-    p.stroke(c);
+    p.stroke(vectorColor);
     p.strokeWeight(2);
 
     p.beginShape();
@@ -214,13 +214,13 @@ this example is created to test the interaction methods proposed for the HumanTe
     let r = p.random(255);
     let g = p.random(255);
     let b = p.random(255);
-    c = p.color(r, g, b);
+    vectorColor = p.color(r, g, b);
   }
 
-  function keyReleased() {
+  p.keyReleased = () => {
     if (p.key == "1") {
       randomColor();
     }
     return false; // prevent any default behavior
-  }
+  };
 }
