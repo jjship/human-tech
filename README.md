@@ -1,3 +1,6 @@
+A showcase site for works developed during the Human Tech creative coding hackaton: https://web.swps.pl/strefa-technologii/wydarzenia/689-online/24853-hackathon-konkurs-kreatywnego-kodowania-humantech-summit?dt=1669892516517
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
