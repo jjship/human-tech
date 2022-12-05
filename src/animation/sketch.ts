@@ -1,8 +1,6 @@
 import { Vector, Color } from "p5";
 import p5 from "p5";
 import { ClickCountResponsePayload, clickUrl } from "../../pages/api/click";
-import { startTransition } from "react";
-import { start } from "repl";
 
 type IssPositionPayload = {
   latitude: number;
