@@ -30,8 +30,6 @@ this example is created to test the interaction methods proposed for the HumanTe
 2. Sending and loading data to firebase and dynamic response of the visualisation
 3. Interaction with the "1" button on the keyboard, which is the equivalent of the button on the Warexpo screen on ul. Chmielna in Warsaw.
 */
-  let provinceNames: string[];
-  let randomProvinceName: string;
   let issPositionPayload: IssPositionPayload;
   const issPosition: Position = {
     lat: 0,
@@ -56,7 +54,7 @@ this example is created to test the interaction methods proposed for the HumanTe
         "https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/poland.geojson"
       ) as Provinces;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     // Get the International Space Station Current Location data
@@ -75,12 +73,6 @@ this example is created to test the interaction methods proposed for the HumanTe
 
     getTemperatureAtPosition(issPosition);
 
-    provinceNames = provinces.features.map(
-      (province) => province.properties.name
-    );
-    const randomIndex = p.round(p.random(provinceNames.length));
-    randomProvinceName = provinceNames[randomIndex];
-
     let canvas = p.createCanvas(1080, 1920);
     canvas.style("font-family", '"Oswald", sans-serif');
     p.textSize(20);
@@ -97,16 +89,6 @@ this example is created to test the interaction methods proposed for the HumanTe
 
   p.draw = () => {
     t++;
-
-    if (t % 100 == 0) {
-      p.loadJSON(
-        "https://api.wheretheiss.at/v1/satellites/25544",
-        (issPositionPayload: IssPositionPayload) => {
-          issPosition.lat = issPositionPayload.latitude;
-          issPosition.long = issPositionPayload.longitude;
-        }
-      );
-    }
 
     if (t % 50 == 0) {
       p.loadJSON(
@@ -126,6 +108,16 @@ this example is created to test the interaction methods proposed for the HumanTe
       adjustStars(clickCount, stars);
     }
 
+    if (t % 100 == 0) {
+      p.loadJSON(
+        "https://api.wheretheiss.at/v1/satellites/25544",
+        (issPositionPayload: IssPositionPayload) => {
+          issPosition.lat = issPositionPayload.latitude;
+          issPosition.long = issPositionPayload.longitude;
+        }
+      );
+    }
+
     newMinute = p.minute();
     if (newMinute != minuteNow) {
       getTemperatureAtPosition(issPosition);
@@ -136,7 +128,6 @@ this example is created to test the interaction methods proposed for the HumanTe
     p.background(0);
     p.noStroke();
     p.fill(255);
-    p.text(randomProvinceName, p.width / 2, 100);
     let x = p.abs((p.width * (issPosition.lat + 90)) / 180);
     let y = p.abs((p.height * (issPosition.long + 180)) / 360);
     p.circle(x, y, 50);
@@ -146,17 +137,19 @@ this example is created to test the interaction methods proposed for the HumanTe
     p.stroke(vectorColor);
     p.strokeWeight(2);
 
-    p.beginShape();
+    if (stars.length) {
+      p.beginShape();
 
-    for (let i = 0; i < stars.length; i++) {
-      p.vertex(stars[i].x, stars[i].y);
-    }
+      for (let i = 0; i < stars.length; i++) {
+        p.vertex(stars[i].x, stars[i].y);
+      }
 
-    p.endShape();
+      p.endShape();
 
-    p.strokeWeight(6);
-    for (let i = 0; i < stars.length; i++) {
-      p.point(stars[i].x, stars[i].y);
+      p.strokeWeight(6);
+      for (let i = 0; i < stars.length; i++) {
+        p.point(stars[i].x, stars[i].y);
+      }
     }
   };
 
@@ -195,8 +188,13 @@ this example is created to test the interaction methods proposed for the HumanTe
       return oldClicks;
     }
 
-    if (newClicks && oldClicks !== newClicks) {
-      console.log("NEW CLICK****", newClicks);
+    console.log({ newClicks, oldClicks });
+    if (
+      //sprawdzam, czy udało się pobrać i porównuję czy coś się zmieniło od ostatniego sprawdzenia
+      newClicks &&
+      oldClicks !== newClicks
+    ) {
+      console.log({ newClicks });
       return newClicks;
     }
     return oldClicks;
@@ -212,7 +210,7 @@ this example is created to test the interaction methods proposed for the HumanTe
         }
       );
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
