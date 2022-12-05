@@ -1,6 +1,8 @@
 import { Vector, Color } from "p5";
 import p5 from "p5";
 import { ClickCountResponsePayload, clickUrl } from "../../pages/api/click";
+import { startTransition } from "react";
+import { start } from "repl";
 
 type IssPositionPayload = {
   latitude: number;
@@ -92,9 +94,7 @@ this example is created to test the interaction methods proposed for the HumanTe
 
     clickCount = p.int(clickCountResponsePayload.variable_value.N);
 
-    for (let i = 0; i < clickCount; i++) {
-      addStar();
-    }
+    adjustStars(clickCount, stars);
   };
 
   p.draw = () => {
@@ -108,7 +108,9 @@ this example is created to test the interaction methods proposed for the HumanTe
           issPosition.long = issPositionPayload.longitude;
         }
       );
+    }
 
+    if (t % 50 == 0) {
       p.loadJSON(
         clickUrl,
         (clickCountResponsePayload: ClickCountResponsePayload) => {
@@ -117,11 +119,13 @@ this example is created to test the interaction methods proposed for the HumanTe
           );
         }
       );
-      console.log({ loaded: clickCountFromDatabase });
+
       clickCount = getNewClicks({
         oldClicks: clickCount,
         newClicks: clickCountFromDatabase,
       });
+
+      adjustStars(clickCount, stars);
     }
 
     newMinute = p.minute();
@@ -158,10 +162,21 @@ this example is created to test the interaction methods proposed for the HumanTe
     }
   };
 
-  function addStar() {
-    let v = p.createVector(p.random(p.width), p.random(p.height));
-    stars.push(v);
-    p.print(v);
+  function adjustStars(clickCount: number, stars: Vector[]): void {
+    console.log({ clickCount, stars });
+    if (stars.length === clickCount) {
+      console.log("return");
+      return;
+    }
+    if (stars.length < clickCount) {
+      let vector = p.createVector(p.random(p.width), p.random(p.height));
+      stars.push(vector);
+      console.log({ stars });
+      return adjustStars(clickCount, stars);
+    }
+    if (stars.length > clickCount) {
+      stars.pop();
+    }
   }
 
   function getNewClicks({
@@ -171,8 +186,6 @@ this example is created to test the interaction methods proposed for the HumanTe
     oldClicks: number;
     newClicks: number;
   }) {
-    console.log("GET CLICKS");
-
     // ta funkcja aktualizuje zmienną ClickCount
     // i zmienia wartość tej zmiennej
     try {
@@ -181,16 +194,11 @@ this example is created to test the interaction methods proposed for the HumanTe
       });
     } catch (error) {
       console.log(error);
+      return oldClicks;
     }
 
-    console.log({ newClicks, oldClicks });
-    if (
-      //sprawdzam, czy udało się pobrać i porównuję czy coś się zmieniło od ostatniego sprawdzenia
-      newClicks &&
-      oldClicks !== newClicks
-    ) {
+    if (newClicks && oldClicks !== newClicks) {
       console.log("NEW CLICK****", newClicks);
-      addStar(); //TODO - move out of this function and make it react to the change old/newClicks - deleting drawn
       return newClicks;
     }
     return oldClicks;
