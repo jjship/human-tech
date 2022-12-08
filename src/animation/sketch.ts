@@ -126,13 +126,8 @@ this example is created to test the interaction methods proposed for the HumanTe
     }
 
     p.background(0);
-    p.noStroke();
-    p.fill(255);
     let x = p.abs((p.width * (issPosition.lat + 90)) / 180);
     let y = p.abs((p.height * (issPosition.long + 180)) / 360);
-    p.circle(x, y, 50);
-    p.fill(temperatureAtIssPosition * 10, 0, 0);
-    p.text(temperatureAtIssPosition, x, y);
     p.noFill();
     p.stroke(vectorColor);
     p.strokeWeight(2);
@@ -142,6 +137,7 @@ this example is created to test the interaction methods proposed for the HumanTe
 
       for (let i = 0; i < stars.length; i++) {
         p.vertex(stars[i].x, stars[i].y);
+        p.vertex(x, y);
       }
 
       p.endShape();
@@ -151,6 +147,11 @@ this example is created to test the interaction methods proposed for the HumanTe
         p.point(stars[i].x, stars[i].y);
       }
     }
+    p.noStroke();
+    p.fill(255);
+    p.circle(x, y, 50);
+    p.fill(temperatureAtIssPosition * 10, 0, 0);
+    p.text(temperatureAtIssPosition, x, y);
   };
 
   function adjustStars(clickCount: number, stars: Vector[]): void {
