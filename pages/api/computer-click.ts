@@ -9,7 +9,7 @@ export type ClickCountResponsePayload = {
   };
 };
 
-export const computerValueUrl = "api/computer-value";
+export const computerValueUrl = "api/computer-click";
 
 const cors = Cors({
   methods: ["POST", "GET", "HEAD"],
