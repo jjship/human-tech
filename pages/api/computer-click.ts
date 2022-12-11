@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
-
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
+import Cors from "cors";
 
 export type ClickCountResponsePayload = {
   variable_value: {
@@ -11,7 +11,25 @@ export type ClickCountResponsePayload = {
 
 export const computerValueUrl = "api/computer-value";
 
-//TODO handle clickCount < 0
+const cors = Cors({
+  methods: ["POST", "GET", "HEAD"],
+});
+
+function runMiddleware(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  fn: Function
+) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result: any) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+
+      return resolve(result);
+    });
+  });
+}
 
 const client = new DynamoDBClient({
   credentials: {
@@ -43,6 +61,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Record<string, any> | undefined>
 ) {
+  await runMiddleware(req, res, cors);
+
   if (req.method === "GET") {
     const { Item } = (await client.send(
       new GetItemCommand({
