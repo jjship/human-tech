@@ -54,7 +54,9 @@ export default async function handler(
       })
     )) as any;
 
-    return res.status(200).json(Item);
+    const code = Item.variable_value.N;
+
+    return res.status(200).json({ code });
   }
 
   if (req.method === "POST") {
