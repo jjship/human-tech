@@ -54,7 +54,9 @@ export default async function handler(
       })
     )) as any;
 
-    return res.status(200).json(Item);
+    const clickMode = Item.variable_value.N;
+
+    return res.status(200).json({ clickMode });
   }
 
   if (req.method === "POST") {
