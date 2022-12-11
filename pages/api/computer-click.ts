@@ -49,7 +49,7 @@ export default async function handler(
         TableName: process.env.AWS_DB_TABLE_NAME,
         Key: {
           animation_name: { S: "computer" },
-          variable_name: { S: "value" },
+          variable_name: { S: "clickMode" },
         },
       })
     )) as any;
@@ -58,19 +58,17 @@ export default async function handler(
   }
 
   if (req.method === "POST") {
-    console.log(req.body);
-    const newValue = Number(req.body.value);
-    console.log({ newValue });
+    const newClickMode = Number(req.body.clickMode);
     const { Attributes } = await ddbDocClient.send(
       new UpdateCommand({
         TableName: process.env.AWS_DB_TABLE_NAME,
         Key: {
           animation_name: "computer",
-          variable_name: "code",
+          variable_name: "clickMode",
         },
-        UpdateExpression: "SET variable_value = :newValue",
+        UpdateExpression: "SET variable_value = :newClickMode",
         ExpressionAttributeValues: {
-          ":newValue": newValue,
+          ":newClickMode": newClickMode,
         },
         ReturnValues: "ALL_NEW",
       })
