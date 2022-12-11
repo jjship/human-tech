@@ -69,6 +69,7 @@ export default async function handler(
   res: NextApiResponse<Record<string, any> | undefined>
 ) {
   await runMiddleware(req, res, cors);
+
   if (req.method === "GET") {
     const { Item } = (await client.send(
       new GetItemCommand({
