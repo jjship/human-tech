@@ -15,6 +15,7 @@
     "@types/p5": "^1.4.3",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "cors": "^2.8.5",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
     "next": "13.0.5",
@@ -32,5 +33,8 @@
     "firefox 67",
     "opera 51",
     "safari 12"
-  ]
+  ],
+  "devDependencies": {
+    "@types/cors": "^2.8.13"
+  }
 }
