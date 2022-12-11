@@ -19,7 +19,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/clickCount.js"
+    "pages/api/clickCount.js",
+    "src/alea/animation/sketch.ts",
+    "src/alea/animation/sketch.js"
   ],
   "exclude": ["node_modules"]
 }

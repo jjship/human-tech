@@ -48,6 +48,7 @@ this example is created to test the interaction methods proposed for the HumanTe
   let clickCount: number; //ta zmienna otrzymuje dane z bazy danych
   let clickCountFromDatabase: number;
   p.preload = () => {
+    console.log("preload");
     // Get the polish provinces database
     try {
       provinces = p.loadJSON(
