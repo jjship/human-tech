@@ -9,7 +9,7 @@ export type ClickCountResponsePayload = {
   };
 };
 
-export const clickUrl = "api/click";
+export const computerCodeUrl = "api/computer-code";
 
 //TODO handle clickCount < 0
 
