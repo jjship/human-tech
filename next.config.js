@@ -12,6 +12,14 @@ const nextConfig = {
         source: "/alea/interface",
         destination: "/alea/interface/index.html",
       },
+      {
+        source: "/codeplasty",
+        destination: "/codeplasty/index.html",
+      },
+      {
+        source: "/codeplasty/interface",
+        destination: "/codeplasty/pilot.html",
+      },
     ];
   },
 };
