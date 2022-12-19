@@ -21,7 +21,7 @@ const nextConfig = {
         destination: "/codeplasty/pilot.html",
       },
       {
-        source: "/404",
+        source: "/computer",
         destination: "/404/index.html",
       },
     ];
