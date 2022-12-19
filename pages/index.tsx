@@ -18,16 +18,32 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>Choose your destination</p>
-
         <div className={styles.grid}>
-          <a href="./showcase" className={styles.card}>
-            <h2>Showcase 1 &rarr;</h2>
-            <p>Some words about the showcase</p>
+          <a href="./alea" className={styles.card}>
+            <h2>404 </h2>
+            <p>animation</p>
+          </a>
+        </div>
+        <div className={styles.grid}>
+          <a href="./alea" className={styles.card}>
+            <h2>Alea </h2>
+            <p>animation</p>
           </a>
 
-          <a href="./interface" className={styles.card}>
-            <h2>Interface 1 &rarr;</h2>
-            <p>ome words about the showcase</p>
+          <a href="./alea/interface" className={styles.card}>
+            <h2>Alea </h2>
+            <p>interface</p>
+          </a>
+        </div>
+        <div className={styles.grid}>
+          <a href="./codeplasty" className={styles.card}>
+            <h2>Codeplasty </h2>
+            <p>animation</p>
+          </a>
+
+          <a href="./codeplasty/interface" className={styles.card}>
+            <h2>Codeplasty </h2>
+            <p>interface</p>
           </a>
         </div>
       </main>
