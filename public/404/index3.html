@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl" 
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link rel="icon"  href="404icon.jpg">
+    <!-- <script src="jquery-3.6.1.min.js"></script> -->
+    <title>404</title>
+    <script>
+        function getVote(int) {
+          var xmlhttp=new XMLHttpRequest();
+          xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+              document.getElementById("poll").innerHTML=this.responseText;
+            }
+          }
+          xmlhttp.open("GET","poll_vote.php?vote="+int,true);
+          xmlhttp.send();
+        }
+    </script>
+    
+    <body>
+        <div id="poll" class="strona">
+        <p id = "intro" style="color: white;">Czy technologia nas uratuje?</p>
+        <div>
+            <button name = "vote" value="0" onclick="getVote(this.value)">>Tak</button>
+        </div>
+        <div>
+            <button name = "vote" value="1" onclick="getVote(this.value)">>Nie</button>
+        </div>
+
+       
+        </div>
+        
+        </body>
+        
+  </head>
+  <main>
+
+  </main>
+
+</html>

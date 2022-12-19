@@ -20,6 +20,10 @@ const nextConfig = {
         source: "/codeplasty/interface",
         destination: "/codeplasty/pilot.html",
       },
+      {
+        source: "/404",
+        destination: "/404/index.html",
+      },
     ];
   },
 };

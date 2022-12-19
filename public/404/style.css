@@ -1,0 +1,462 @@
+
+
+
+@keyframes opacity {
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+    }
+}
+.opacityanimation
+{
+    animation-name: opacity;
+    animation-duration: 2s;
+    -webkit-animation: opacity 2s;
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes opacity2 {
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+.opacityanimation2
+{
+    animation-name: opacity2;
+    animation-duration: 2s;
+    -webkit-animation: opacity2 2s;
+    -webkit-animation-fill-mode: forwards;
+}
+@font-face {
+    font-family: SpaceMono-Regular;
+    src: url(SpaceMono-Regular.ttf);
+ }
+/* telefony */
+@media only screen and (max-width: 1200px) {
+    #animacja
+    {
+        width: 38.1vw;
+        margin-left: 31.2vw;
+        margin-top: 4%;
+    }
+    .animacja1
+    {
+        width: 30.56vw;
+        margin-left: 37.76vw;
+        margin-top: 13.96vw;
+        position: absolute;
+        z-index: -3;
+    }
+    .animacja2
+    {
+        width: 30.56vw;
+        margin-left: 36.16vw;
+        margin-top: 16.76vw;
+        position: absolute;
+        z-index: -2;
+    }
+    .animacja3
+    {
+        width: 30.56vw;
+        margin-left: 34.56vw;
+        margin-top: 19.56vw;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .sizeanimation
+    {
+        animation-name: size;
+        animation-duration: 2s;
+        -webkit-animation: size 2s;
+        -webkit-animation-fill-mode: forwards;
+    }
+    .sizeanimation2
+    {
+        animation-name: size2;
+        animation-duration: 2s;
+        -webkit-animation: size2 2s;
+        -webkit-animation-fill-mode: forwards;
+    }
+    #system img
+    {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    display: none;
+    
+    
+    }
+    #tlo
+    {
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        display: flex;
+        width: 62vw;
+        z-index: -10;
+        margin-top: 5.52vw;
+        margin-left: 19.44vw;
+    }
+    #system img:first-child
+    {
+    display: block;
+    }
+    
+    #computer img
+    {
+     margin-left: 10vw;
+    padding: 0;
+    display: flex;
+    width: 80vw;
+    -webkit-transform: scale(1, 1);
+     transform: scale(1, 1);
+    z-index: 10;
+    }
+    #animacja
+    {
+        position: absolute ;
+        z-index: -2;
+    }
+  
+ 
+    @keyframes size {
+       
+        
+        100% { width: 100vw;
+            margin-left: 0vw;
+            margin-top: 0vw;
+            z-index: 3;
+           }
+      }
+      @keyframes size2 {
+        0% { 
+            width: 100vw;
+            margin-left: 0vw;
+            margin-top: 0vw;
+            z-index: -1;
+           }
+       100%
+       {
+        width: 30.56vw;
+        margin-left: 34.56vw;
+        margin-top: 19.56vw;
+        position: absolute;
+        z-index: -1;
+       }
+        
+      }
+}
+      body
+{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    
+    
+}
+#stronaSI
+{
+    position: absolute;
+    margin-top: 73.5vw;
+    width: 100vw;
+    
+    height: 74.78vw;
+    overflow-y:scroll;
+    z-index: 12;
+    opacity: 0;
+}
+#tekstSI
+{
+    width: 100vw;
+    
+    
+    
+}
+#stronaAn
+{
+    position: absolute;
+    margin-top: 73.5vw;
+    width: 100vw;
+    background-color: black;
+    height: 74.78vw;
+    overflow-y:scroll;
+    z-index: 12;
+    opacity: 0;
+}
+#tekstAn
+{
+    width: 100vw;
+    
+    
+    
+}
+#stronaLem
+{
+    position: absolute;
+    margin-top: 73.5vw;
+    width: 100vw;
+    margin-left: 0;
+    height: 74.78vw;
+    overflow-y:scroll;
+    z-index: 12;
+    opacity: 0;
+    
+}
+#tekstLem
+{
+    font-family: SpaceMono-Regular;
+    color: white;
+    font-size: 2vw;
+    
+}
+.kolorczat1
+{
+    color: #097b50;
+}
+.kolorczat2
+{
+    color: #0171fc;
+}
+#proporcje
+{
+    height: 80vh;
+    
+    position: absolute;
+    
+}
+#instrukcja
+    {
+        margin-left: 5vw;
+        width: 90vw;
+    }
+
+#proporcje
+{
+    padding-top: 20vw;
+}
+
+/* komp! */
+@media only screen and (min-width: 1200px) {
+    #animacja
+    {
+        width: 11.46vw;
+        margin-left: 31.2vw;
+        margin-top: 4%;
+    }
+    
+    .animacja1
+    {
+        width: 15.28vw;
+        margin-left: 43.88vw;
+        margin-top: 6.96vw;
+        position: absolute;
+        z-index: -3;
+    }
+    .animacja2
+    {
+        width: 15.28vw;
+        margin-left: 43.08vw;
+        margin-top: 8.38vw;
+        position: absolute;
+        z-index: -2;
+    }
+    .animacja3
+    {
+        width: 15.28vw;
+        margin-left: 42.28vw;
+        margin-top: 9.78vw;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .sizeanimation
+    {
+        animation-name: size;
+        animation-duration: 2s;
+        -webkit-animation: size 2s;
+        -webkit-animation-fill-mode: forwards;
+    }
+    .sizeanimation2
+    {
+        animation-name: size2;
+        animation-duration: 2s;
+        -webkit-animation: size2 2s;
+        -webkit-animation-fill-mode: forwards;
+    }
+    #system img
+    {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40vh;
+    display: none;
+    
+    
+    }
+    #tlo
+    {
+        margin-left: 34.72vw;
+       
+        position: absolute;
+        display: flex;
+        width: 32vw;
+        z-index: -10;
+        margin-top: 2.76vw;
+       
+    }
+    #system img:first-child
+    {
+    display: block;
+    }
+    
+    #computer img
+    {
+     margin-left: 30vw;
+    
+    padding: 0;
+    display: flex;
+    width: 40vw;
+    -webkit-transform: scale(1, 1);
+     transform: scale(1, 1);
+    z-index: 10;
+    }
+    #animacja
+    {
+        position: absolute ;
+        z-index: -2;
+    }
+  
+ 
+    @keyframes size {
+       
+        
+        100% { width: 40vw;
+            margin-left: 30vw;
+            margin-top: 0vw;
+            z-index: 3;
+           }
+      }
+      @keyframes size2 {
+        0% { 
+            width: 40vw;
+            margin-left: 30vw;
+            margin-top: 0vw;
+            z-index: -1;
+           }
+       100%
+       {
+        
+        width: 15.28vw;
+        margin-left: 42.28vw;
+        margin-top: 9.78vw;
+        position: absolute;
+        z-index: -1;
+       }
+
+        
+      }
+      body
+{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    
+   
+}
+#stronaSI
+{
+    position: absolute;
+    margin-top: 29.6vw;
+    width: 40vw;
+    margin-left: 30vw;
+    height: 30vw;
+    overflow-y:scroll;
+    z-index: 12;
+    opacity: 0;
+    z-index: 100;
+}
+#tekstSI
+{
+    width: 40vw;
+    
+    
+    
+}
+#stronaAn
+{
+    position: absolute;
+    margin-top: 29.6vw;
+    width: 40vw;
+    margin-left: 30vw;
+    height: 30vw;
+    
+    background-color: black;
+
+    overflow-y:scroll;
+    z-index: 12;
+    opacity: 0;
+    z-index: 100;
+}
+#tekstAn
+{
+    width: 40vw;
+    
+    
+    
+}
+#stronaLem
+{
+    position: absolute;
+    margin-top: 29.6vw;
+    width: 40vw;
+    margin-left: 30vw;
+    height: 30vw;
+    overflow-y:scroll;
+    z-index: 12;
+    opacity: 0;
+    background-color: black;
+}
+#tekstLem
+{
+    font-family: SpaceMono-Regular;
+    color: white;
+    font-size: 1vw;
+    
+}
+.kolorczat1
+{
+    color: #097b50;
+}
+.kolorczat2
+{
+    color: #0171fc;
+}
+#proporcje
+{
+    height: 80vh;
+    
+    position: absolute;
+    
+}
+#instrukcja
+{
+    width: 40vw;
+    margin-left: 30vw;
+}
+#proporcje
+{
+    padding-top: 10vw;
+}
+
+
+}
