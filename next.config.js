@@ -21,7 +21,7 @@ const nextConfig = {
         destination: "/codeplasty/pilot.html",
       },
       {
-        source: "/404",
+        source: "/404-animation",
         destination: "/404/index.html",
       },
     ];
