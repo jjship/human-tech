@@ -107,4 +107,21 @@ export default async function handler(
 
     return res.status(200).json(Attributes);
   }
+
+  if (req.method === "PUT") {
+    const { Attributes } = await ddbDocClient.send(
+      new UpdateCommand({
+        TableName: process.env.AWS_DB_TABLE_NAME,
+        Key: {
+          animation_name: "alea",
+          variable_name: "xenobots",
+        },
+        UpdateExpression:
+          "SET variable_value = variable_value - variable_value",
+        ReturnValues: "ALL_NEW",
+      })
+    );
+
+    return res.status(200).json(Attributes);
+  }
 }
