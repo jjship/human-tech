@@ -5,8 +5,7 @@ let max = false;
 let info = "DODAJ KSENOBOT";
 let iloscXenoWBazie = 0;
 t = 0;
-// url = 'https://human-tech-hackaton-22.vercel.app/api/alea-xenobots';
-url = "http://localhost:3000/api/alea-xenobots";
+url = "https://human-tech-hackaton-22.vercel.app/api/alea-xenobots";
 
 function preload() {
   tabela = loadJSON(url);

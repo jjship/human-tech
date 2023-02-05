@@ -2,8 +2,7 @@ let ekran_1;
 let ekran_2;
 let iloscXenoWBazie;
 let t = 0;
-// const url = 'https://human-tech-hackaton-22.vercel.app/api/alea-xenobots';
-const url = "http://localhost:3000/api/alea-xenobots";
+const url = "https://human-tech-hackaton-22.vercel.app/api/alea-xenobots";
 
 function preload() {
   ekran_1 = loadImage("ekran_1.png");
