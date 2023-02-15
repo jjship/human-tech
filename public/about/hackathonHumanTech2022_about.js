@@ -32,14 +32,16 @@ let warexpo;
 let ovh;
 let humantech;
 
-let minutes = process.env.TIMEOUT_MINUTES;
-let seconds = process.env.TIMEOUT_SECONDS;
+let minutes = 5;
+let seconds = 0;
 
 let milliSec = 0;
 const sec = 1000;
 
 let lx1 = 50; //beginning of the counter line
 const easing = 0.08;
+
+const timeoutUrl = "http://localhost:3000/api/timeout";
 
 function preload() {
   oswaldBold = loadFont("/about/fonts/Oswald-Bold.ttf");
@@ -50,6 +52,13 @@ function preload() {
   warexpo = loadImage("/about/logo/warexpo.png");
   ovh = loadImage("/about/logo/ovh.png");
   humantech = loadImage("/about/logo/humantech.png");
+
+  //get timeout
+  loadJSON(timeoutUrl, (timeout) => {
+    minutes = Number(timeout.minutes);
+    seconds = parseInt(timeout.seconds);
+    console.log({ timeout });
+  });
 
   //get date
   let dayN = day();
