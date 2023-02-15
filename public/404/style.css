@@ -11,6 +11,16 @@
         opacity: 0;
     }
 }
+.restartopacity
+{
+    opacity: 0;
+}
+body
+{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
 .opacityanimation
 {
     animation-name: opacity;
@@ -18,6 +28,23 @@
     -webkit-animation: opacity 2s;
     -webkit-animation-fill-mode: forwards;
 }
+.opacityfastanimation
+{
+    animation-name: opacity;
+    animation-duration: 0.3s;
+    -webkit-animation: opacity 0.3s;
+    -webkit-animation-fill-mode: forwards;
+}
+#poll2 p
+{
+    font-family: SpaceMono-Regular;
+    color: white;
+    
+    overflow: hidden;
+    white-space: pre;
+    font-size: 4vw;  
+}
+p { font-family: SpaceMono-Regular,Arial; }
 @keyframes opacity2 {
     from
     {
@@ -31,71 +58,325 @@
 .opacityanimation2
 {
     animation-name: opacity2;
-    animation-duration: 2s;
-    -webkit-animation: opacity2 2s;
+    animation-duration: 1s;
+    -webkit-animation: opacity2 1s;
     -webkit-animation-fill-mode: forwards;
 }
+.opacityfastanimation2
+{
+    animation-name: opacity2;
+    animation-duration: 0.3s;
+    -webkit-animation: opacity2 0.3s;
+    -webkit-animation-fill-mode: forwards;
+}
+
 @font-face {
     font-family: SpaceMono-Regular;
     src: url(SpaceMono-Regular.ttf);
  }
-/* telefony */
-@media only screen and (max-width: 1200px) {
-    #animacja
+ #strona img
+   {
+       position: absolute;
+   }
+   .animacjaStronaTylna3
+   {
+       animation-name: stronaTylna3;
+       animation-duration: 0.5s;
+       -webkit-animation: stronaTylna3 0.5s;
+       -webkit-animation-fill-mode: forwards;
+   }
+     .animacjaStrona3na2
+     {
+       animation-name: strona3na2;
+       animation-duration: 0.5s;
+       -webkit-animation: strona3na2 0.5s;
+       -webkit-animation-fill-mode: forwards;
+     }
+     .animacjaStrona2naPrzod
+     {
+       animation-name: strona2naPrzod;
+       animation-duration: 0.5s;
+       -webkit-animation: strona2naPrzod 0.5s;
+       -webkit-animation-fill-mode: forwards;
+     }
+     .animacjaStronaPrzodnaTyl
     {
-        width: 38.1vw;
-        margin-left: 31.2vw;
-        margin-top: 4%;
+       animation-name: stronaPrzodnaTyl;
+       animation-duration: 0.5s;
+       -webkit-animation: stronaPrzodnaTyl 0.5s;
+       -webkit-animation-fill-mode: forwards;
     }
-    .animacja1
+     
+   .animacjaRozmiar
+   {
+       animation-name: powiekszanie;
+       animation-duration: 2s;
+       -webkit-animation: powiekszanie 2s;
+       -webkit-animation-fill-mode: forwards;
+   }
+   .animacjaRozmiarPowrot
+   {
+       animation-name: zmniejszanie;
+       animation-duration: 2s;
+       -webkit-animation: zmniejszanie 2s;
+       -webkit-animation-fill-mode: forwards;
+   }
+   #podstronagraph
+    {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+    }
+    #poll2
+    {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+    }
+/* telefony */
+@media only screen and (max-width: 1100px) {
+    .podstronaTekst
+    {
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 2vw;
+        margin-left: 3vw;
+        margin-right: 3vw;
+    }
+    #podstronaSI
+    {
+        position: absolute;
+        margin-top: calc(73.5vw + -20vh);
+        width: 100vw;
+        height: calc(100vh - 73.5vw);
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+    }
+    #tekstSI
+    {
+        width: 100vw;
+    }
+    #podstronaAn
+    {
+        position: absolute;
+        margin-top: calc(73.5vw + -20vh);
+        height: calc(100vh - 73.5vw);
+        width: 90vw;
+        margin-left: 5vw;
+        background-color: black;
+        display: flex;
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+    }
+    #tekstAn
+    {
+        width: 70vw;
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 4vw;
+        position: absolute;
+    }
+    #tekstAn2
+    {
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 4vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    #tekstAn3
+    {
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 4vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    
+    #loading
+    {
+        width: 20vw;
+    }
+    #tekstgraph
+    {
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 4vw;
+        text-align: center;
+        display: none;
+    }
+
+    #podstronaLem
+    {
+        position: absolute;
+        margin-top: calc(73.5vw + -20vh);
+        width: 100vw;
+        margin-left: 0;
+        height: calc(100vh - 73.5vw);
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+        background-color: black;
+    }
+   
+    #podstronaPrzenikanie
+    {
+        position: absolute;
+        margin-top: calc(73.5vw + -20vh);
+        width: 100vw;
+        margin-left: 0;
+        height: calc(100vh - 73.5vw);
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+        background-color: black;
+    }
+   
+    .stronaTyl
     {
         width: 30.56vw;
-        margin-left: 37.76vw;
-        margin-top: 13.96vw;
+        margin-left: 36.6175vw;
+        margin-top: 12.9vw ;
         position: absolute;
         z-index: -3;
+       
     }
-    .animacja2
+    .strona3
     {
         width: 30.56vw;
-        margin-left: 36.16vw;
-        margin-top: 16.76vw;
+        margin-left: 35.3725vw;
+        margin-top: 15.39vw;
+
         position: absolute;
         z-index: -2;
+        
     }
-    .animacja3
+    .strona2
     {
         width: 30.56vw;
-        margin-left: 34.56vw;
-        margin-top: 19.56vw;
+        margin-left: 34.1275vw;
+        margin-top: 17.88vw;
         position: absolute;
         z-index: -1;
+        
+    }
+    .stronaPrzod
+    {
+        width: 30.56vw;
+        margin-left: 32.8825vw;
+        margin-top: 20.37vw;
+        position: absolute;
+        z-index: 0;
+        
+    }
+    @keyframes stronaPrzodnaTyl {
+        0%
+        {
+            width: 30.56vw;
+            margin-left: 32.8825vw;
+            margin-top: 20.37vw;
+            position: absolute;
+            z-index: 0;
+        }
+        40%
+        {
+            opacity: 0;
+            width: 30.56vw;
+            margin-left: 32.8825vw;
+            margin-top: 20.37vw;
+            position: absolute;
+            z-index: 0;
+        }
+        80%
+        {
+            opacity: 0;
+        }
+        
+        100% { width: 30.56vw;
+            margin-left: 36.6175vw;
+            margin-top: 12.9vw ;
+            position: absolute;
+            z-index: -3;
+            opacity: 1;
+        }
+    }
+    @keyframes stronaTylna3 {
+       
+        0%
+        {
+            width: 30.56vw;
+            margin-left: 36.6175vw;
+            margin-top: 12.9vw ;
+            position: absolute;
+            z-index: -3;
+        }
+        100% 
+        { 
+            width: 30.56vw;
+            margin-left: 35.3725vw;
+            margin-top: 15.39vw;
+            position: absolute;
+            z-index: -2;
+        }
+      }
+    @keyframes strona3na2 
+    {
+        0%
+        {
+            width: 30.56vw;
+            margin-left: 35.3725vw;
+            margin-top: 15.39vw;
+            position: absolute;
+            z-index: -2;
+        }
+        100% 
+        { 
+            width: 30.56vw;
+            margin-left: 34.1275vw;
+            margin-top: 17.88vw;
+            position: absolute;
+            z-index: -1;
+        }
+    }
+    @keyframes strona2naPrzod 
+    {
+        0%
+        {
+            width: 30.56vw;
+            margin-left: 34.1275vw;
+            margin-top: 17.88vw;
+            position: absolute;
+            z-index: -1;
+        }
+        100% 
+        { 
+            width: 30.56vw;
+            margin-left: 32.8825vw;
+            margin-top: 20.37vw;
+            position: absolute;
+            z-index: 0;
+        }
+    }
+   
+    .rozmiar
+    {
+        width: 100vw;
+        margin-left: 0vw;
+        margin-top: -20vh;
+        z-index: 100;
     }
     
-    .sizeanimation
-    {
-        animation-name: size;
-        animation-duration: 2s;
-        -webkit-animation: size 2s;
-        -webkit-animation-fill-mode: forwards;
-    }
-    .sizeanimation2
-    {
-        animation-name: size2;
-        animation-duration: 2s;
-        -webkit-animation: size2 2s;
-        -webkit-animation-fill-mode: forwards;
-    }
-    #system img
-    {
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100vh;
-    display: none;
-    
-    
-    }
     #tlo
     {
         margin-left: auto;
@@ -114,206 +395,386 @@
     
     #computer img
     {
-     margin-left: 10vw;
-    padding: 0;
-    display: flex;
-    width: 80vw;
-    -webkit-transform: scale(1, 1);
-     transform: scale(1, 1);
-    z-index: 10;
+        margin-left: 10vw;
+        padding: 0;
+        display: flex;
+        width: 80vw;
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        z-index: 10;
     }
-    #animacja
-    {
-        position: absolute ;
-        z-index: -2;
-    }
+   
   
  
-    @keyframes size {
+    @keyframes powiekszanie {
        
-        
+        0%
+        {
+            width: 30.56vw;
+            margin-left: 32.8825vw;
+            margin-top: 20.37vw;
+            position: absolute;
+            z-index: 0;
+        }
         100% { width: 100vw;
             margin-left: 0vw;
-            margin-top: 0vw;
-            z-index: 3;
+            margin-top: -20vh;
+            z-index: 100;
            }
       }
-      @keyframes size2 {
+
+    @keyframes zmniejszanie {
         0% { 
             width: 100vw;
             margin-left: 0vw;
-            margin-top: 0vw;
-            z-index: -1;
+            margin-top: -20vh;
+            z-index: 100;
            }
        100%
        {
-        width: 30.56vw;
-        margin-left: 34.56vw;
-        margin-top: 19.56vw;
-        position: absolute;
-        z-index: -1;
+            width: 30.56vw;
+            margin-left: 32.8825vw;
+            margin-top: 20.37vw;
+            position: absolute;
+            z-index: 0;
        }
         
-      }
-}
-      body
-{
-    background-color: black;
-    margin: 0;
-    padding: 0;
+    }
     
-    
-}
-#stronaSI
-{
-    position: absolute;
-    margin-top: 73.5vw;
-    width: 100vw;
-    
-    height: 74.78vw;
-    overflow-y:scroll;
-    z-index: 12;
-    opacity: 0;
-}
-#tekstSI
-{
-    width: 100vw;
-    
-    
-    
-}
-#stronaAn
-{
-    position: absolute;
-    margin-top: 73.5vw;
-    width: 100vw;
-    background-color: black;
-    height: 74.78vw;
-    overflow-y:scroll;
-    z-index: 12;
-    opacity: 0;
-}
-#tekstAn
-{
-    width: 100vw;
-    
-    
-    
-}
-#stronaLem
-{
-    position: absolute;
-    margin-top: 73.5vw;
-    width: 100vw;
-    margin-left: 0;
-    height: 74.78vw;
-    overflow-y:scroll;
-    z-index: 12;
-    opacity: 0;
-    
-}
-#tekstLem
-{
-    font-family: SpaceMono-Regular;
-    color: white;
-    font-size: 2vw;
-    
-}
-.kolorczat1
-{
-    color: #097b50;
-}
-.kolorczat2
-{
-    color: #0171fc;
-}
-#proporcje
-{
-    height: 80vh;
-    
-    position: absolute;
-    
-}
-#instrukcja
+    #center
     {
-        margin-left: 5vw;
-        width: 90vw;
+        height: 80vh;
+        padding-top: 20vh;
+        position: absolute;
+        
+    }
+    #qrcode
+    {
+        margin-left: 12vw;
+        width: 20vw;
+        padding-top: 3vw;
+        padding-bottom: 3vw;
+       
+    }   
+    #qrtekst
+    {
+       
+        margin: auto;
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+      
+    }
+    #qrdiv
+    {
+        margin-top: 3vw;
+        height: 20vw;
+        width: 51vw;
+        margin-left: 34vw;
+        position: absolute;
     }
 
-#proporcje
-{
-    padding-top: 20vw;
+    #qrcode img
+    {
+        width: 20vw;
+        height: 20vw;
+        
+    }
+   
+
 }
+
 
 /* komp! */
-@media only screen and (min-width: 1200px) {
-    #animacja
+@media only screen and (min-width: 1100px) {
+    .podstronaTekst
     {
-        width: 11.46vw;
-        margin-left: 31.2vw;
-        margin-top: 4%;
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 1.5vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
     }
-    
-    .animacja1
+    #podstronaSI
     {
-        width: 15.28vw;
-        margin-left: 43.88vw;
-        margin-top: 6.96vw;
         position: absolute;
-        z-index: -3;
+        margin-top: calc(29.4vw + -10vh);
+        height: calc(100vh - 29.4vw);
+        width: 40vw;
+        margin-left: 30vw;
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+        z-index: 100;
     }
-    .animacja2
+    #tekstSI
     {
-        width: 15.28vw;
-        margin-left: 43.08vw;
-        margin-top: 8.38vw;
+        width: 40vw;
+        
+    }
+    #podstronaAn
+    {
         position: absolute;
-        z-index: -2;
+        width: 40vw;
+        margin-left: 30vw;
+        margin-top: calc(29.4vw + -10vh);
+        height: calc(100vh - 29.4vw);
+        background-color: black;
+
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+        z-index: 100;
     }
-    .animacja3
+    #tekstAn
     {
-        width: 15.28vw;
-        margin-left: 42.28vw;
-        margin-top: 9.78vw;
+        width: 40vw;
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 2vw;
         position: absolute;
-        z-index: -1;
     }
-    
-    .sizeanimation
+    #tekstAn2
     {
-        animation-name: size;
-        animation-duration: 2s;
-        -webkit-animation: size 2s;
-        -webkit-animation-fill-mode: forwards;
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 2vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
-    .sizeanimation2
+    #tekstAn3
     {
-        animation-name: size2;
-        animation-duration: 2s;
-        -webkit-animation: size2 2s;
-        -webkit-animation-fill-mode: forwards;
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 2vw;
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
-    #system img
+    #podstronaLem
     {
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    height: 40vh;
+        position: absolute;
+        width: 40vw;
+        margin-left: 30vw;
+        margin-top: calc(29.4vw + -10vh);
+        height: calc(100vh - 29.4vw);
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+        background-color: black;
+    }
+   
+    #podstronaPrzenikanie
+    {
+        position: absolute;
+        /* margin-top: 29.6vw; */
+        width: 40vw;
+        margin-left: 30vw;
+        margin-top: calc(29.4vw + -10vh);
+        height: calc(100vh - 29.4vw);
+        overflow-y:scroll;
+        z-index: 4;
+        opacity: 0;
+        background-color: black;
+    }
+    #center
+    {
+        height: 80vh;
+        padding-top: 10vh;
+        position: absolute;
+        
+    }
+    #qrcode
+    {
+        margin-left: 31vw;
+        width: 10vw;
+        padding-top: 1.5vw;
+        padding-bottom: 1.5vw;
+       
+    }   
+    #qrtekst
+    {
+       
+        margin: auto;
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+      
+    }
+    #qrdiv
+    {
+        margin-top: 1.5vw;
+        height: 10vw;
+        width: 25.5vw;
+        margin-left: 42vw;
+        position: absolute;
+    }
+
+    #qrcode img
+    {
+        width: 10vw;
+        height: 10vw;
+        
+    }
+   
+    #loading
+    {
+        width: 5vw;
+    }
+    #tekstgraph
+    {
+        font-family: SpaceMono-Regular;
+        color: white;
+        font-size: 1.5vw;
+    text-align: center;
     display: none;
     
-    
     }
+    
+    .stronaTyl
+    {
+        width: 15.28vw;
+        margin-left: 43.308vw;
+        margin-top: 6.45vw ;
+        position: absolute;
+        z-index: -3;
+       
+    }
+    .strona3
+    {
+        width: 15.28vw;
+        margin-left: 42.686vw;
+        margin-top: 7.695vw;
+        position: absolute;
+        z-index: -2;
+        
+    }
+    .strona2
+    {
+        width: 15.28vw;
+        margin-left: 42.063vw;
+        margin-top: 8.94vw;
+        position: absolute;
+        z-index: -1;
+        
+    }
+    .stronaPrzod
+    {
+        width: 15.28vw;
+        margin-left: 41.441vw;
+        margin-top: 10.185vw;
+        position: absolute;
+        z-index: 0;
+        
+    }
+    
+    @keyframes stronaPrzodnaTyl {
+        0%
+        {
+            width: 15.28vw;
+            margin-left: 41.441vw;
+            margin-top: 10.185vw;
+            position: absolute;
+            z-index: 0;
+        }
+        40%
+        {
+            opacity: 0;
+            width: 15.28vw;
+            margin-left: 41.441vw;
+            margin-top: 10.185vw;
+            position: absolute;
+            z-index: 0;
+        }
+        80%
+        {
+            opacity: 0;
+        }
+        
+        100% { 
+            width: 15.28vw;
+            margin-left: 43.308vw;
+            margin-top: 6.45vw ;
+            position: absolute;
+            z-index: -3;
+            opacity: 1;
+           }
+      }
+      @keyframes stronaTylna3 {
+       
+        0%
+        {
+            width: 15.28vw;
+            margin-left: 43.308vw;
+            margin-top: 6.45vw ;
+            position: absolute;
+            z-index: -3;
+        }
+        100% { 
+            width: 15.28vw;
+            margin-left: 42.686vw;
+            margin-top: 7.695vw;
+            position: absolute;
+            z-index: -2;
+            
+           }
+      }
+      @keyframes strona3na2 {
+       
+        0%
+        {
+             width: 15.28vw;
+            margin-left: 42.686vw;
+            margin-top: 7.695vw;
+            position: absolute;
+            z-index: -2;
+        }
+        100% { 
+            
+            width: 15.28vw;
+            margin-left: 42.063vw;
+            margin-top: 8.94vw;
+            position: absolute;
+            z-index: -1;
+            
+           }
+      }
+      @keyframes strona2naPrzod {
+       
+        0%
+        { 
+            width: 15.28vw;
+            margin-left: 42.063vw;
+            margin-top: 8.94vw;
+            position: absolute;
+            z-index: -1;
+        }
+        100% { 
+           
+            width: 15.28vw;
+            margin-left: 41.441vw;
+            margin-top: 10.185vw;
+            position: absolute;
+            z-index: 0;
+            
+           }
+      }
+    
     #tlo
     {
         margin-left: 34.72vw;
-       
         position: absolute;
         display: flex;
         width: 32vw;
         z-index: -10;
         margin-top: 2.76vw;
-       
     }
+    
     #system img:first-child
     {
     display: block;
@@ -322,7 +783,6 @@
     #computer img
     {
      margin-left: 30vw;
-    
     padding: 0;
     display: flex;
     width: 40vw;
@@ -330,133 +790,64 @@
      transform: scale(1, 1);
     z-index: 10;
     }
+    .rozmiar
+    {
+        width: 40vw;
+        margin-left: 30vw;
+        margin-top: -10vh;
+        z-index: 100;
+    }
     #animacja
     {
         position: absolute ;
         z-index: -2;
     }
-  
+    #poll2 p
+    {
+        font-family: SpaceMono-Regular;
+        color: white;
+        overflow: hidden;
+        white-space: pre;
+        font-size: 2vw;  
+    }
  
-    @keyframes size {
+    @keyframes powiekszanie {
        
+        0%
+        {
+            width: 15.28vw;
+            margin-left: 41.441vw;
+            margin-top: 10.185vw;
+            position: absolute;
+            z-index: 0;
         
+        }
         100% { width: 40vw;
             margin-left: 30vw;
-            margin-top: 0vw;
+            margin-top: -10vh;
             z-index: 3;
            }
       }
-      @keyframes size2 {
+      @keyframes zmniejszanie {
         0% { 
             width: 40vw;
             margin-left: 30vw;
-            margin-top: 0vw;
-            z-index: -1;
+            margin-top: -10vh;
+            z-index: 3;
            }
        100%
        {
-        
         width: 15.28vw;
-        margin-left: 42.28vw;
-        margin-top: 9.78vw;
+        margin-left: 41.441vw;
+        margin-top: 10.185vw;
         position: absolute;
-        z-index: -1;
+        z-index: 0;
        }
 
         
       }
-      body
-{
-    background-color: black;
-    margin: 0;
-    padding: 0;
     
-   
-}
-#stronaSI
-{
-    position: absolute;
-    margin-top: 29.6vw;
-    width: 40vw;
-    margin-left: 30vw;
-    height: 30vw;
-    overflow-y:scroll;
-    z-index: 12;
-    opacity: 0;
-    z-index: 100;
-}
-#tekstSI
-{
-    width: 40vw;
-    
-    
-    
-}
-#stronaAn
-{
-    position: absolute;
-    margin-top: 29.6vw;
-    width: 40vw;
-    margin-left: 30vw;
-    height: 30vw;
-    
-    background-color: black;
 
-    overflow-y:scroll;
-    z-index: 12;
-    opacity: 0;
-    z-index: 100;
-}
-#tekstAn
-{
-    width: 40vw;
-    
-    
-    
-}
-#stronaLem
-{
-    position: absolute;
-    margin-top: 29.6vw;
-    width: 40vw;
-    margin-left: 30vw;
-    height: 30vw;
-    overflow-y:scroll;
-    z-index: 12;
-    opacity: 0;
-    background-color: black;
-}
-#tekstLem
-{
-    font-family: SpaceMono-Regular;
-    color: white;
-    font-size: 1vw;
-    
-}
-.kolorczat1
-{
-    color: #097b50;
-}
-.kolorczat2
-{
-    color: #0171fc;
-}
-#proporcje
-{
-    height: 80vh;
-    
-    position: absolute;
-    
-}
-#instrukcja
-{
-    width: 40vw;
-    margin-left: 30vw;
-}
-#proporcje
-{
-    padding-top: 10vw;
-}
 
 
 }
