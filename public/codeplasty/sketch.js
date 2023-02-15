@@ -22,7 +22,17 @@ let rows = 90;
 const numCells = cols * rows;
 let values = [];
 
+// for timeout
+let minutes = 5;
+let seconds = 0;
+
 function preload() {
+  //get timeout
+  loadJSON(timeoutUrl, (timeout) => {
+    minutes = parseInt(timeout.minutes);
+    seconds = parseInt(timeout.seconds);
+  });
+
   tytul = loadImage("/codeplasty/title.png");
 }
 
@@ -184,4 +194,25 @@ function screen2() {
     // }
   } //
   pop();
+
+  //COUNTER
+  if (millis() - milliSec > sec) {
+    seconds--;
+    milliSec = millis();
+  }
+
+  if (seconds == 0) {
+    minutes--;
+    seconds = 59;
+  }
+
+  let timeCount = minutes * 60 + seconds;
+
+  if (timeCount <= 0) {
+    //load first visualisation
+
+    location.reload();
+    location.href = "https://human-tech-hackaton-22.vercel.app/about";
+    noLoop();
+  }
 }

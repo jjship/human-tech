@@ -12,6 +12,8 @@ let oldprzewijanie = 0;
 let oldwybor = 0;
 let oldid = 0;
 let futureid = 0;
+let minutes = 5;
+let seconds = 0;
 
 const idstrony = document.getElementById("strona").children;
 const idcomputer = document.getElementById("computer");
@@ -31,8 +33,21 @@ var qrcode = new QRCode(document.getElementById("qrcode"), {
   width: 100,
   height: 100,
 });
-window.onload = function () {
+window.onload = async function () {
   createqr();
+  await fetch("https://human-tech-hackaton-22.vercel.app/api/timeout")
+    .then((response) => response.json())
+    .then((timeout) => {
+      minutes = timeout.minutes;
+      seconds = timeout.seconds;
+    });
+
+  const timeout = (minutes * 60 + seconds) * 1000;
+
+  setTimeout(() => {
+    location.reload();
+    location.href = "https://human-tech-hackaton-22.vercel.app/alea";
+  }, timeout);
 };
 function createqr() {
   let nazwa =
