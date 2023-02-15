@@ -2,32 +2,116 @@
 <html lang="pl">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style2.css" />
-    <!-- <script src="jquery-3.6.1.min.js"></script> -->
-    <link rel="icon" href="/404/404icon.jpg" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="stylesheet" type="text/css" href="/404/style2.css" />
+    <script src="/404/jquery-3.6.1.min.js"></script>
+
+    <link rel="icon" href="/404/zdjecia/logo.jpg" />
     <title>404</title>
   </head>
+  <body style="background-color: #cbcbcb; overflow: hidden">
+    <main style="width: 100vw; overflow: hidden; background-color: #cbcbcb">
+      <div id="timer">
+        <div class="loading">
+          <div id="introbackground"></div>
+          <img id="introfront" src="/404/przyciski/intro.png" alt="" />
+          <img id="introback" src="/404/przyciski/timer2.jpg" alt="" />
+        </div>
+      </div>
+      <div id="koniec">
+        <!-- <img src="/404/zdjecia/end.jpg" draggable="false" alt=""> -->
+        <img id="endTytul" src="/404/przyciski/endtytul.jpg" alt="koniec" />
+        <img
+          class="endTap"
+          id="end0"
+          src="/404/przyciski/end0.jpg"
+          alt="koniec"
+        />
+        <img
+          class="endTap"
+          id="end1"
+          src="/404/przyciski/end1.jpg"
+          alt="koniec"
+        />
+      </div>
 
-  <main>
-    <div id="post" class="strona">
-      <p>[11.12.2022]</p>
-      <p>TECHNOLOGIA NAS URATUJE?</p>
-      <!-- <p style="white-space: nowrap;">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</p> -->
-      <p>?????</p>
+      <div id="kolo">
+        <img
+          id="pokretlo"
+          src="/404/przyciski/pokretlo.jpg"
+          draggable="false"
+          alt="Przycisk pokrętło"
+        />
+        <img
+          id="wskaznik"
+          src="/404/przyciski/wskaznik.png"
+          draggable="false"
+          alt="wskaznik"
+        />
+      </div>
+      <div id="size" onclick="ssize()">
+        <img
+          src="/404/przyciski/stronamala.jpg"
+          draggable="false"
+          alt="Przełącznik strony"
+        />
+        <img
+          src="/404/przyciski/stronaduza.jpg"
+          draggable="false"
+          style="display: none"
+          alt="Przełącznik strony"
+        />
+      </div>
 
-      <p style="margin-bottom: 0">Jedynym środkiem na technologię</p>
-      <p class="tekstpost">(na jej skutki jakoś fatalne)</p>
-      <p class="tekstpost">jest inna technologia.</p>
-      <p class="tekstpost">Kultura broniła człowieka przed światem</p>
-      <p class="tekstpost">i jednocześnie świat przed człowiekiem.</p>
-
-      <p>sudo chmod 755 /www/project</p>
-    </div>
-    <div id="post2" class="strona">
-      <a href="/index4.html">> Przycisk</a>
-      <a href="/index3.html">> Ankieta</a>
-      <a href="/index5.html">> O nas</a>
-    </div>
-  </main>
+      <div id="info">
+        <img src="/404/przyciski/instrukcja.jpg" draggable="false" alt="" />
+      </div>
+      <div id="tempo" class="left" style="display: none">
+        <img
+          id="linia"
+          src="/404/przyciski/line.jpg"
+          draggable="false"
+          alt="Linia slider"
+        />
+        <img
+          id="slider"
+          src="/404/przyciski/slider.png"
+          draggable="false"
+          style="margin-top: 55vh"
+          alt="Przycisk slider"
+        />
+      </div>
+      <div id="ankieta" class="left" style="display: none">
+        <img
+          id="An00"
+          src="/404/przyciski/An00.jpg"
+          draggable="false"
+          style="display: block"
+          alt="Przyciski ankieta"
+        />
+        <img
+          id="An10"
+          src="/404/przyciski/An10.jpg"
+          draggable="false"
+          style="display: none"
+          alt="Przyciski ankieta"
+        />
+        <img
+          id="An01"
+          src="/404/przyciski/An01.jpg"
+          draggable="false"
+          style="display: none"
+          alt="Przyciski ankieta"
+        />
+      </div>
+      <div id="puste" class="left" style="display: block">
+        <img src="/404/przyciski/puste.jpg" alt="Enter the void" />
+      </div>
+      <script src="/404/js2.js"></script>
+    </main>
+  </body>
 </html>

@@ -1,379 +1,213 @@
 body,main
 {
-    background-color: black;
-    padding: 0;
-    margin: 0;
+    width: 100vw;
+    overflow: hidden;
 }
-a
+#tytul
 {
-    text-decoration: none;  
+    position: absolute;
+
+}
+#pokretlo
+{
+    position: absolute;
+    margin-top: calc(50vh - 51.51vw);
+    -webkit-margin-top: calc(50vh - 51.51vw);
+    width: 100vw;
     display: block;
 }
-#buttonmain
+#wskaznik
 {
-    height: 100vw;
-    width: 100vw;
-  
+    position: absolute;
+    margin-top: calc(50vh - 51.51vw);
+    -webkit-margin-top: calc(50vh - 51.51vw);
+    width: 48.48vw;
+    display: block;
+    transform: rotate(55deg);
+    -ms-transform: rotate(55deg);
+    -moz-transform: rotate(55deg);
+    -webkit-transform: rotate(55deg);
+    -o-transform: rotate(55deg);
+}
+.left img
+{
+    position: absolute;
+    margin-top:  calc(50vh - 3.03vw);
+    width: 33.33vw;
+}
+#size img
+{
+    position: absolute;
+    margin-top: calc(50vh - 3.03vw);
+    -webkit-margin-top: calc(50vh - 3.03vw);
+    width: 33.33vw;
+    margin-left: 33.33vw;
+}
+#info img
+{
+    position: absolute;
+    margin-top: calc(50vh - 3.03vw);
+    -webkit-margin-top: calc(50vh - 3.03vw);
+    width: 33.33vw; 
+    margin-left:66.66vw
+}
+body,main, div
+{
+    user-zoom: none; 
+    margin: 0;
+    padding: 0;
+}
+img {  
+    user-zoom: none;  
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	-webkit-app-region: no-drag;
+    /* pointer-events: none; */
+    WebkitUserSelect: 'none';
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
 
+    
 }
-#my p
+
+#timer
 {
-    font-family: SpaceMono-Regular;
-    color: white;
-}
-/* index3.html */
-#numberinto
-{
-    width: 90%;
-    height: 8vw;
-    margin-left: 5%;
-    font-family: SpaceMono-Regular;
-    color: black;
-    outline: hidden;
-    font-size: 6vw;
-    background-color: white;
-    border-color: white;
-    border-radius: 4vw;
-    border-width: thin;
-}
-#buttonpost p
-{
-    font-family: SpaceMono-Regular;
-    color: black;
-    width: 0%;
+    width: 0vw;
+    height: 100vh;
+    background-color: black;
+    position:absolute;
+    z-index: 100;
     overflow: hidden;
-    white-space: nowrap;
+    
+}
+#koniec
+{
+    width: 0vw;
+    height: 100vh;
+    background-color: #cbcbcb;
+    position:absolute;
+    z-index: 100;
+    overflow: hidden;
+    
+}
+
+
+.loading
+{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #cbcbcb;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+#endTytul
+{
+    width: 100vw;
+}
+#end0
+{
+    width: 100vw;
+    display: block;
+}
+#end1
+{
+    width: 100vw;
+    display: none;
+}
+p { font-family: SpaceMono-Regular,Arial; }
+#koniectext
+{
+    margin:0;
+    padding: 0;
+   
+    color: #3a3a3a;
+    font-weight: lighter;
+    font-size: 5vw; 
+    text-align: center; 
+    width: 90vw;
+    opacity: 0.7;
     margin-left: 5vw;
     margin-right: 5vw;
-    width: 80vw;
-    font-size: 6vw;
-    margin-bottom: 0;
-    
+    z-index: 10;
 }
-#buttonmain button
+
+#introfront
 {
-    margin-left: 15vw;
-    width: 70vw;
-    height: 70vw;
-    border-radius: 50%;
-    background-color: black;
-    border-color: white;
-    border-width:thin;
-}
-.vertical-center {
-    margin: 0;
+    width: 100vw;
     position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-#post p
+    z-index: 5;
+}
+#introback
 {
-    font-family: SpaceMono-Regular;
-    color: white;
-    width: 0%;
-    overflow: hidden;
-    white-space: nowrap;
-    
+    margin-left: -35vw;
+     
+    width: 70vw;
+    position: absolute; 
+    z-index: 0;
+}
+#introbackground
+{
+    display: block;
+    background-color: #f5f5f5;
+    width: 100vw;
+    height: 100vw;
 }
 
-
-#buttonpost p:nth-child(1)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post2 a
-{
-    font-family: SpaceMono-Regular;
-    color: white;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 0%;
-    
-    
-}
-
-.tekstpost
-{
-    margin-top: 0;
-    margin-bottom: 0;
-}
-#post p:nth-child(1)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(2)
-{
-    -webkit-animation: kreska 1s steps(3, end);
-    animation: kreska 1s steps(15, end);
-    -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(3)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 3s;
-    animation-delay: 3s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(4)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 5s;
-    animation-delay: 5s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(5)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 7s;
-    animation-delay: 7s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(6)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 9s;
-    animation-delay: 9s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(7)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 11s;
-    animation-delay: 11s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(8)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 13s;
-    animation-delay: 13s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post p:nth-child(9)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 15s;
-    animation-delay: 15s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-
-#post2 a:nth-child(1)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 17s;
-    animation-delay: 17s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post2 a:nth-child(2)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 19s;
-    animation-delay: 19s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#post2 a:nth-child(3)
-{
-    
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-delay: 21s;
-    animation-delay: 21s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-
-
-
-#post2 a:hover
-{
-    text-decoration: underline;
-}
-@keyframes pisanie {
-    0% {
-      width: 0;
-    }
-    
-    100% {
-      width: 100%;
-    }
-  }
-  @keyframes kreska {
-    0% {
-      width: 0;
-    }
-    
-    100% {
-      width: 100%;
-    }
-  }
-@font-face {
-    font-family: SpaceMono-Regular;
-    src: url(SpaceMono-Regular.ttf);
- }
-@media only screen and (max-width: 1081px) {
-    
-    .strona
-    {
-        width: 90vw;
-    
-        margin-left: 5vw;
-        margin-right: 5vw;
-    }
-    #post p
-    {
-        font-size: 3vw;
-    }
-    #post2 a
-    {
-        font-size: 3vw;
-        text-decoration-thickness: 1px;
-    }
-}
-@media only screen and (min-width: 1081px) and (max-width:1500px){
-    
-    .strona
-    {
-        width: 80vw;
-        margin-left: 10vw;
-        margin-right: 10vw;
-    }
-    #post p
-    {
-        font-size: 3vw;
-    }
-    #post2 a
-    {
-        font-size: 3vw;
-        text-decoration-thickness: 3px;
-    }
-}
-@media only screen and (min-width: 1500px){
-    .strona
-    {
-        
-        width: 55vw;
-        margin-left: 22.5vw;
-        margin-right: 22.5vw;
-        
-    }
-    
-    #post p
-    {
-        font-size: 3vw;
-    }
-    #post2 a
-    {
-        font-size: 3vw;
-        text-decoration-thickness: 3px;
-    }
-   
-}
-/* style3 */
-#poll button
-{
-    font-family: SpaceMono-Regular;
-    color: white;
-    background-color: transparent;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 5vw;  
-    border-color: transparent;
-    text-align: left;
-    text-decoration-thickness: 2px;
-}
-button:hover
-{
-    text-decoration: underline;
-}
-#intro
-{
-    font-family: SpaceMono-Regular;
-    color: white;
-    
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 5vw;
-    width: 0%;
-    -webkit-animation: pisanie 2s steps(30, end);
-    animation: pisanie 2s steps(30, end);
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-#poll2 p
-{
-    font-family: SpaceMono-Regular;
-    color: white;
-    
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 5vw;  
-}
-#poll2 button
-{
-    font-family: SpaceMono-Regular;
-    color: white;
-    
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 5vw;  
-}
-
-
-#poll button
-{
-    opacity: 0;
-    -webkit-animation: opacity 2s steps(30, end);
-    animation: opacity 2s steps(30, end);
-    
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-@keyframes opacity {
+ @keyframes ankietaanimacja {
+       
     0%
     {
-        opacity: 0;
+        width: 0vw;
+      
     }
     100%
     {
-        opacity: 100%;
+        width: 100vw;
+        
+        
     }
-}
+ }
+ @keyframes ankietaanimacja2 {
+       
+    0%
+    {
+        width: 100vw;
+        
+    }
+    100%
+    {
+        width: 0vw;
+        
+        
+    }
+ }
+ 
+ .animacjaankieta
+ {
+    animation-name: ankietaanimacja;
+    animation-duration: 1s;
+    -webkit-animation: ankietaanimacja 1s;
+    -webkit-animation-fill-mode: forwards;
+ }
+ .animacjaankieta2
+ {
+    animation-name: ankietaanimacja2;
+    animation-duration: 1s;
+    -webkit-animation: ankietaanimacja2 1s;
+    -webkit-animation-fill-mode: forwards;
+ }
+
+ @font-face {
+     font-family: SpaceMono-Regular;
+     src: url(SpaceMono-Regular.ttf);
+  }
+
+ 
+
+ 
