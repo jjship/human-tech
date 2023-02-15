@@ -32,8 +32,8 @@ let warexpo;
 let ovh;
 let humantech;
 
-let minutes = 5;
-let seconds = 0;
+let minutes = process.env.TIMEOUT_MINUTES;
+let seconds = process.env.TIMEOUT_SECONDS;
 
 let milliSec = 0;
 const sec = 1000;
