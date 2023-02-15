@@ -41,7 +41,7 @@ const sec = 1000;
 let lx1 = 50; //beginning of the counter line
 const easing = 0.08;
 
-const timeoutUrl = "http://localhost:3000/api/timeout";
+const timeoutUrl = "https://human-tech-hackaton-22.vercel.app/api/timeout";
 
 function preload() {
   oswaldBold = loadFont("/about/fonts/Oswald-Bold.ttf");
@@ -55,9 +55,8 @@ function preload() {
 
   //get timeout
   loadJSON(timeoutUrl, (timeout) => {
-    minutes = Number(timeout.minutes);
+    minutes = parseInt(timeout.minutes);
     seconds = parseInt(timeout.seconds);
-    console.log({ timeout });
   });
 
   //get date

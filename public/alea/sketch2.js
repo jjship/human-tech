@@ -4,6 +4,8 @@ let iloscXenoWBazie;
 let t = 0;
 const url = "https://human-tech-hackaton-22.vercel.app/api/alea-xenobots";
 
+const timeoutUrl = "https://human-tech-hackaton-22.vercel.app/api/timeout";
+
 function preload() {
   ekran_1 = loadImage("ekran_1.png");
   ekran_2 = loadImage("ekran_2_nowy.png");
@@ -42,6 +44,10 @@ let sekundy = [];
 
 let kolory = ["#13574a", "#fd5d25", "#fd756a", "#cfe35e"];
 //let word = random(words);
+
+// for timeout
+let minutes = 5;
+let seconds = 0;
 
 function setup() {
   createCanvas(1080, 1920);
@@ -90,6 +96,14 @@ function time() {
   }
 
   sekundy[s] = 1;
+}
+
+function preload() {
+  //get timeout
+  loadJSON(timeoutUrl, (timeout) => {
+    minutes = parseInt(timeout.minutes);
+    seconds = parseInt(timeout.seconds);
+  });
 }
 
 function draw() {
@@ -171,6 +185,27 @@ function draw() {
   rect(900, 1740, 100, 100);
   image(kod, 900, 1740);
   kod.resize(100, 100);
+
+  //COUNTER
+  if (millis() - milliSec > sec) {
+    seconds--;
+    milliSec = millis();
+  }
+
+  if (seconds == 0) {
+    minutes--;
+    seconds = 59;
+  }
+
+  let timeCount = minutes * 60 + seconds;
+
+  if (timeCount <= 0) {
+    //load first visualisation
+
+    location.reload();
+    location.href = "https://human-tech-hackaton-22.vercel.app/codeplasty";
+    noLoop();
+  }
 }
 
 function zmienIloscXenobotow(change) {
