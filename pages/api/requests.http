@@ -1,0 +1,22 @@
+GET http://localhost:3000/api/computer-code
+
+### computer pollObject
+GET http://localhost:3000/api/computer-poll_object
+
+### computer pollObject
+POST http://localhost:3000/api/computer-poll_object
+Content-Type: application/json
+
+{
+	"yesChange": "1",
+	"noChange": "0"
+}
+
+### codeplasty transparency-one
+POST http://localhost:3000/api/codeplasty-transparency-one
+Content-Type: application/json
+
+{"transparencyOneChange":"1"}
+
+### codeplasty transparency-one
+GET http://localhost:3000/api/codeplasty-transparency-one
