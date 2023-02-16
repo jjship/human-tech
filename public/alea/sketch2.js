@@ -49,6 +49,14 @@ let kolory = ["#13574a", "#fd5d25", "#fd756a", "#cfe35e"];
 let minutes = 5;
 let seconds = 0;
 
+function preload() {
+  //get timeout
+  loadJSON(timeoutUrl, (timeout) => {
+    minutes = parseInt(timeout.minutes);
+    seconds = parseInt(timeout.seconds);
+  });
+}
+
 function setup() {
   createCanvas(1080, 1920);
 
@@ -96,14 +104,6 @@ function time() {
   }
 
   sekundy[s] = 1;
-}
-
-function preload() {
-  //get timeout
-  loadJSON(timeoutUrl, (timeout) => {
-    minutes = parseInt(timeout.minutes);
-    seconds = parseInt(timeout.seconds);
-  });
 }
 
 function draw() {
