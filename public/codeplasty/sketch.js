@@ -23,8 +23,11 @@ const numCells = cols * rows;
 let values = [];
 
 // for timeout
+const timeoutUrl = "https://human-tech-hackaton-22.vercel.app/api/timeout";
 let minutes = 5;
 let seconds = 0;
+let milliSec = 0;
+const sec = 1000;
 
 function preload() {
   //get timeout

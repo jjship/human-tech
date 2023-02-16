@@ -4,7 +4,12 @@ let iloscXenoWBazie;
 let t = 0;
 const url = "https://human-tech-hackaton-22.vercel.app/api/alea-xenobots";
 
+// for timeout
 const timeoutUrl = "https://human-tech-hackaton-22.vercel.app/api/timeout";
+let minutes = 5;
+let seconds = 0;
+let milliSec = 0;
+const sec = 1000;
 
 function preload() {
   ekran_1 = loadImage("ekran_1.png");
@@ -12,6 +17,12 @@ function preload() {
   kod = loadImage("qrcode(2).png");
   httpDo(url, "PUT"); //wyzerowanie liczby xenobotów w bazie
   iloscXenoWBazie = 0;
+
+  //get timeout
+  loadJSON(timeoutUrl, (timeout) => {
+    minutes = parseInt(timeout.minutes);
+    seconds = parseInt(timeout.seconds);
+  });
 }
 
 let plastik = [];
@@ -44,18 +55,6 @@ let sekundy = [];
 
 let kolory = ["#13574a", "#fd5d25", "#fd756a", "#cfe35e"];
 //let word = random(words);
-
-// for timeout
-let minutes = 5;
-let seconds = 0;
-
-function preload() {
-  //get timeout
-  loadJSON(timeoutUrl, (timeout) => {
-    minutes = parseInt(timeout.minutes);
-    seconds = parseInt(timeout.seconds);
-  });
-}
 
 function setup() {
   createCanvas(1080, 1920);
