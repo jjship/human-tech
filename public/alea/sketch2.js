@@ -12,9 +12,9 @@ let milliSec = 0;
 const sec = 1000;
 
 function preload() {
-  ekran_1 = loadImage("ekran_1.png");
-  ekran_2 = loadImage("ekran_2_nowy.png");
-  kod = loadImage("qrcode(2).png");
+  ekran_1 = loadImage("./alea/ekran_1.png");
+  ekran_2 = loadImage("./alea/ekran_2_nowy.png");
+  kod = loadImage("./alea/qrcode(2).png");
   httpDo(url, "PUT"); //wyzerowanie liczby xenobotów w bazie
   iloscXenoWBazie = 0;
 

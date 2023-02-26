@@ -1,10 +1,10 @@
-GET http://localhost:3000/api/computer-code
+GET https://human-tech-hackaton-22.vercel.app/api/computer-code
 
 ### computer pollObject
-GET http://localhost:3000/api/computer-poll_object
+GET https://human-tech-hackaton-22.vercel.app/api/computer-poll_object
 
 ### computer pollObject
-POST http://localhost:3000/api/computer-poll_object
+POST https://human-tech-hackaton-22.vercel.app/api/computer-poll_object
 Content-Type: application/json
 
 {
@@ -13,10 +13,10 @@ Content-Type: application/json
 }
 
 ### codeplasty transparency-one
-POST http://localhost:3000/api/codeplasty-transparency-one
+POST https://human-tech-hackaton-22.vercel.app/api/codeplasty-transparency-one
 Content-Type: application/json
 
 {"transparencyOneChange":"1"}
 
 ### codeplasty transparency-one
-GET http://localhost:3000/api/codeplasty-transparency-one
+GET https://human-tech-hackaton-22.vercel.app/api/codeplasty-transparency-one

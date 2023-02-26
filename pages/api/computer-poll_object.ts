@@ -3,8 +3,6 @@ import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import Cors from "cors";
 
-export const computerPollObjectUrl = "api/computer-poll_object";
-
 const cors = Cors({
   methods: ["POST", "GET", "HEAD"],
 });
@@ -33,23 +31,7 @@ const client = new DynamoDBClient({
   region: process.env.AWS_DB_REGION,
 });
 
-const marshallOptions = {
-  // Whether to automatically convert empty strings, blobs, and sets to `null`.
-  convertEmptyValues: false, // false, by default.
-  // Whether to remove undefined values while marshalling.
-  removeUndefinedValues: false, // false, by default.
-  // Whether to convert typeof object to map attribute.
-  convertClassInstanceToMap: false, // false, by default.
-};
-
-const unmarshallOptions = {
-  // Whether to return numbers as a string instead of converting them to native JavaScript numbers.
-  wrapNumbers: true, // false, by default.
-};
-
-const translateConfig = { marshallOptions, unmarshallOptions };
-
-const ddbDocClient = DynamoDBDocumentClient.from(client, translateConfig);
+const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 export default async function handler(
   req: NextApiRequest,
