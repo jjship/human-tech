@@ -37,7 +37,9 @@ function new_question1() {
   httpPost(
     "https://human-tech-hackaton-22.vercel.app/api/codeplasty-transparency-one",
     "json",
-    { transparencyOneChange: 1 }
+    {
+      transparencyOneChange: 1,
+    }
   );
 }
 
@@ -49,7 +51,9 @@ function new_question0() {
   httpPost(
     "https://human-tech-hackaton-22.vercel.app/api/codeplasty-transparency-two",
     "json",
-    { transparencyTwoChange: 1 }
+    {
+      transparencyTwoChange: 1,
+    }
   );
 }
 

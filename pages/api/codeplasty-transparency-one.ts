@@ -4,14 +4,6 @@ import Cors from "cors";
 
 import { DynamoDBDocumentClient, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 
-export type ClickCountResponsePayload = {
-  variable_value: {
-    N: string;
-  };
-};
-
-export const clickUrl = "api/codeplasty-transparency-one";
-
 const cors = Cors({
   methods: ["POST", "GET", "HEAD"],
 });
@@ -40,29 +32,7 @@ const client = new DynamoDBClient({
   region: process.env.AWS_DB_REGION,
 });
 
-const marshallOptions = {
-  // Whether to automatically convert empty strings, blobs, and sets to `null`.
-  convertEmptyValues: false, // false, by default.
-  // Whether to remove undefined values while marshalling.
-  removeUndefinedValues: false, // false, by default.
-  // Whether to convert typeof object to map attribute.
-  convertClassInstanceToMap: false, // false, by default.
-};
-
-const unmarshallOptions = {
-  // Whether to return numbers as a string instead of converting them to native JavaScript numbers.
-  wrapNumbers: true, // false, by default.
-};
-
-const translateConfig = { marshallOptions, unmarshallOptions };
-
-const ddbDocClient = DynamoDBDocumentClient.from(client, translateConfig);
-
-type AnimationVariable = {
-  variable_value: number;
-  variable_name: string;
-  animation_name: string;
-};
+const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 export default async function handler(
   req: NextApiRequest,
