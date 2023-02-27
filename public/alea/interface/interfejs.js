@@ -1,11 +1,12 @@
 let clickCount = 0;
 let x, y, w, h;
-let clicked = false;
 let max = false;
 let info = "DODAJ KSENOBOT";
 let iloscXenoWBazie = 0;
-t = 0;
-url = "https://human-tech-hackaton-22.vercel.app/api/alea-xenobots";
+let t = 0;
+let url = "https://human-tech-hackaton-22.vercel.app/api/alea-xenobots";
+let currentMillis = 0;
+let blockBtn = false;
 
 function preload() {
   tabela = loadJSON(url);
@@ -24,11 +25,12 @@ function setup() {
 }
 
 function mouseReleased() {
-  if (!max && mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+  if (!blockBtn && !max && mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
     clickCount++;
     print(clickCount);
     zmienIloscXenobotow(1);
-    clicked = true;
+    blockBtn = false;
+    currentMillis = millis();
   }
 }
 
@@ -42,11 +44,21 @@ function draw() {
     print({ iloscXenoWBazie, max });
     info = max ? "OSIĄGNIĘTO MAX KSENOBOTÓW" : "DODAJ KSENOBOT";
   }
+  
   background(0);
-  // if (clicked) {
-  //   clicked = false;
-  // }
-  fill(50);
+  
+  if(blockBtn){
+  let waitForUnblock = millis() - currentMillis;
+    if(waitForUnblock > 1000){//=1 sec
+    blockBtn = false;
+    fill(50);
+    }
+  }else{
+    fill(0, 128, 43);
+  }
+  if(!blockBtn && mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h){
+   fill(0, 153, 204);
+  }
   rect(x, y, w, h);
   fill(255);
   text(info, x + w / 2, y + h / 2);
